@@ -15,6 +15,7 @@ class BusinessCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,14 @@ class BusinessCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setBusiness(business: Business) {
+        nameLabel.text = business.name
+        addressLabel.text = business.address
+        thumbnail.setImageWithURL(NSURL(string: business.imageURL!))
+        ratingImage.setImageWithURL(NSURL(string: business.ratingImageURL!))
+        distanceLabel.text = "0.2 mi"
     }
 
 }

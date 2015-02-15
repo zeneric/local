@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var searchBar = UISearchBar()
     
-    var businesses: [NSDictionary]! = []
+    var businesses: [Business] = []
 
     @IBOutlet weak var businessesTableView: UITableView!
     
@@ -36,7 +36,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
         
         client.searchWithTerm("Thai", success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            self.businesses = response["businesses"] as [NSDictionary]
+            let dictionaries = response["businesses"] as [NSDictionary]
+            self.businesses = Business.businessesWithDictionaries(dictionaries) as [Business]
             self.businessesTableView.reloadData()
             
             }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -51,62 +52,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        println("Searching")
         self.businesses = []
-        println(businesses.count)
         searchBar.endEditing(true)
-        
-        client.searchWithTerm(searchBar.text, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-//            println(response["businesses"][0] as NSString)
-            println(response)
-            self.businesses = response["businesses"] as [NSDictionary]
-            self.businessesTableView.reloadData()
-            
-            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
-        }
+//        
+//        client.searchWithTerm(searchBar.text, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+//            println(response)
+//            self.businesses = response["businesses"] as [NSDictionary]
+//            self.businessesTableView.reloadData()
+//            
+//            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+//                println(error)
+//        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(businesses.count)
-        
         return businesses.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("CellAtRow-\(indexPath.row)")
         var cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell") as BusinessCell
-        var business = businesses[indexPath.row]
         
-        
-        cell.nameLabel.text = business["name"] as? String
-        
-        // Thumbnail
-        if let imageURL = business["image_url"] as? String {
-            cell.thumbnail.setImageWithURL(NSURL(string: imageURL))
-        }
-
-        // Categories
-        var category = ""
-        if let categories = business["categories"] as? NSArray {
-            category = categories[0][0] as String
-        }
-        cell.categoryLabel.text = category
-        
-        // Address
-        var displayAddress = ""
-        if let addresses = business.valueForKeyPath("location.address") as? NSArray {
-            if addresses.count > 0 {
-                if let address = addresses[0] as? String {
-                    displayAddress = address
-                }
-            }
-        }
-        if let neighborhoods = business.valueForKeyPath("location.neighborhoods") as? NSArray {
-            var neighborhood = neighborhoods[0] as? String
-            displayAddress = "\(displayAddress), \(neighborhood)"
-        }
-        cell.addressLabel.text = displayAddress
+        cell.setBusiness(businesses[indexPath.row])
+   
         
         return cell
     }
