@@ -14,7 +14,7 @@ class Business: NSObject {
     var ratingImageURL: String?
     var numReviews: Int?
     var address: String?
-    var categories: NSArray?
+    var categories: String?
 //    var distance: CGFloat
     
     init (dictionary: NSDictionary) {
@@ -39,8 +39,13 @@ class Business: NSObject {
         }
         
         // Categories
+        var tempCategories: NSMutableArray = []
         if let categories = dictionary["categories"] as? NSArray {
-            self.categories = categories
+            for category in categories {
+                tempCategories.addObject(category[0])
+            }
+            
+            self.categories = tempCategories.componentsJoinedByString(", ")
         }
         
         // Address

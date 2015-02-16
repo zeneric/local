@@ -14,7 +14,7 @@ class BusinessCell: UITableViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var ratingImage: UIImageView!
     
     override func awakeFromNib() {
@@ -31,9 +31,17 @@ class BusinessCell: UITableViewCell {
     func setBusiness(business: Business) {
         nameLabel.text = business.name
         addressLabel.text = business.address
-        thumbnail.setImageWithURL(NSURL(string: business.imageURL!))
-        ratingImage.setImageWithURL(NSURL(string: business.ratingImageURL!))
+        
+        if let imageURL = business.imageURL {
+            thumbnail.setImageWithURL(NSURL(string: imageURL))
+        }
+        
+        if let ratingImageURL = business.ratingImageURL {
+            ratingImage.setImageWithURL(NSURL(string: ratingImageURL))
+        }
+
         distanceLabel.text = "0.2 mi"
+        categoriesLabel.text = business.categories
     }
 
 }

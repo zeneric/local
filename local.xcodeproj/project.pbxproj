@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2F5C3C6AA9540D107F7F7473 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16059055E8DEB64BA3A7F398 /* libPods.a */; };
+		683B518C1A91846100B2EFED /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B518B1A91846100B2EFED /* FiltersViewController.swift */; };
+		683B518E1A9189B700B2EFED /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B518D1A9189B700B2EFED /* SwitchCell.swift */; };
+		683B51901A91973C00B2EFED /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B518F1A91973C00B2EFED /* TextCell.swift */; };
 		6887AE661A89AD43000AE543 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6887AE651A89AD43000AE543 /* YelpClient.swift */; };
+		688A85761A918208008ED2C6 /* PushNoAnimationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A85751A918208008ED2C6 /* PushNoAnimationSegue.swift */; };
 		68A899991A89B314003F6A99 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A899981A89B314003F6A99 /* BusinessCell.swift */; };
 		68B6532D1A914CF2002A0C33 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B6532C1A914CF2002A0C33 /* Business.swift */; };
 		68E904801A899A8300AB95D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E9047F1A899A8300AB95D0 /* AppDelegate.swift */; };
@@ -31,7 +35,11 @@
 
 /* Begin PBXFileReference section */
 		16059055E8DEB64BA3A7F398 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		683B518B1A91846100B2EFED /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		683B518D1A9189B700B2EFED /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		683B518F1A91973C00B2EFED /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		6887AE651A89AD43000AE543 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		688A85751A918208008ED2C6 /* PushNoAnimationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNoAnimationSegue.swift; sourceTree = "<group>"; };
 		68A899981A89B314003F6A99 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		68B6532C1A914CF2002A0C33 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		68E9047A1A899A8300AB95D0 /* local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = local.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +117,11 @@
 			children = (
 				68E9047F1A899A8300AB95D0 /* AppDelegate.swift */,
 				68E904811A899A8300AB95D0 /* ViewController.swift */,
+				688A85751A918208008ED2C6 /* PushNoAnimationSegue.swift */,
 				68E904831A899A8300AB95D0 /* Main.storyboard */,
+				683B518D1A9189B700B2EFED /* SwitchCell.swift */,
+				683B518F1A91973C00B2EFED /* TextCell.swift */,
+				683B518B1A91846100B2EFED /* FiltersViewController.swift */,
 				68B6532B1A914CDC002A0C33 /* Models */,
 				68A899981A89B314003F6A99 /* BusinessCell.swift */,
 				68E904861A899A8300AB95D0 /* Images.xcassets */,
@@ -292,7 +304,11 @@
 			files = (
 				68E904821A899A8300AB95D0 /* ViewController.swift in Sources */,
 				68A899991A89B314003F6A99 /* BusinessCell.swift in Sources */,
+				683B518C1A91846100B2EFED /* FiltersViewController.swift in Sources */,
 				6887AE661A89AD43000AE543 /* YelpClient.swift in Sources */,
+				683B51901A91973C00B2EFED /* TextCell.swift in Sources */,
+				688A85761A918208008ED2C6 /* PushNoAnimationSegue.swift in Sources */,
+				683B518E1A9189B700B2EFED /* SwitchCell.swift in Sources */,
 				68B6532D1A914CF2002A0C33 /* Business.swift in Sources */,
 				68E904801A899A8300AB95D0 /* AppDelegate.swift in Sources */,
 			);
